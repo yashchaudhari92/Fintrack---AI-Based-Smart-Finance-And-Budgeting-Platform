@@ -1,56 +1,307 @@
-body{
-  height: 100%;
-  margin: 0;
-}
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* =========================================================
+   FINTRACK - APP GLOBAL STYLES
+   Modern SaaS / FinTech UI foundation
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   App Shell
+   --------------------------------------------------------- */
+
+.app-container {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f8fafc;
+  color: #0f172a;
 }
 
-
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.main-content {
+  flex: 1;
+  width: 100%;
 }
 
-Footer{
-  width: 100%;   /* Ensure footer stretches across the full width */
-    position: absolute; /* Position the footer at the bottom of the page */
-    left: 0;
-    right: 0;
-    margin-top: auto; /* Push footer to the bottom */
+/* ---------------------------------------------------------
+   Modern SaaS Utility Classes
+   --------------------------------------------------------- */
+
+.ft-page {
+  width: 100%;
+  min-height: 100%;
 }
-@keyframes logo-spin {
+
+.ft-container {
+  width: min(100% - 2rem, 1400px);
+  margin-inline: auto;
+}
+
+.ft-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 1rem;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.03),
+    0 8px 30px rgba(15, 23, 42, 0.04);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.ft-card:hover {
+  border-color: rgba(203, 213, 225, 0.95);
+  box-shadow:
+    0 4px 6px rgba(15, 23, 42, 0.03),
+    0 16px 40px rgba(15, 23, 42, 0.06);
+}
+
+.ft-glass {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.ft-gradient-text {
+  background: linear-gradient(
+    135deg,
+    #2563eb 0%,
+    #7c3aed 50%,
+    #06b6d4 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* ---------------------------------------------------------
+   Buttons
+   --------------------------------------------------------- */
+
+.ft-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid transparent;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.ft-button:hover {
+  transform: translateY(-1px);
+}
+
+.ft-button:active {
+  transform: translateY(0);
+}
+
+.ft-button-primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+}
+
+.ft-button-primary:hover {
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.28);
+}
+
+.ft-button-secondary {
+  color: #334155;
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.ft-button-secondary:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+/* ---------------------------------------------------------
+   Form Elements
+   --------------------------------------------------------- */
+
+.ft-input {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 0.875rem;
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.ft-input::placeholder {
+  color: #94a3b8;
+}
+
+.ft-input:hover {
+  border-color: #cbd5e1;
+}
+
+.ft-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.ft-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+  background: #f8fafc;
+}
+
+/* ---------------------------------------------------------
+   Page Entrance Animations
+   --------------------------------------------------------- */
+
+.ft-page-enter {
+  animation: ft-page-enter 420ms ease-out both;
+}
+
+.ft-fade-up {
+  animation: ft-fade-up 450ms ease-out both;
+}
+
+.ft-scale-in {
+  animation: ft-scale-in 300ms ease-out both;
+}
+
+@keyframes ft-page-enter {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
   }
+
   to {
-    transform: rotate(360deg);
+    opacity: 1;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes ft-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.card {
-  padding: 2em;
+@keyframes ft-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.read-the-docs {
-  color: #888;
+/* ---------------------------------------------------------
+   Skeleton Loading
+   --------------------------------------------------------- */
+
+.ft-skeleton {
+  position: relative;
+  overflow: hidden;
+  background: #e2e8f0;
+  border-radius: 0.5rem;
+}
+
+.ft-skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.65),
+    transparent
+  );
+  animation: ft-skeleton 1.5s infinite;
+}
+
+@keyframes ft-skeleton {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ---------------------------------------------------------
+   Toastify
+   --------------------------------------------------------- */
+
+.Toastify__toast {
+  border-radius: 0.875rem !important;
+  font-family: inherit !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  box-shadow:
+    0 10px 25px rgba(15, 23, 42, 0.08),
+    0 4px 10px rgba(15, 23, 42, 0.04) !important;
+}
+
+.Toastify__toast-body {
+  padding: 0.25rem 0 !important;
+}
+
+.Toastify__progress-bar {
+  height: 3px !important;
+}
+
+/* ---------------------------------------------------------
+   Footer
+   --------------------------------------------------------- */
+
+footer {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------
+   Responsive Adjustments
+   --------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .ft-container {
+    width: min(100% - 1.25rem, 1400px);
+  }
+
+  .ft-card {
+    border-radius: 0.875rem;
+  }
+}
+
+/* ---------------------------------------------------------
+   Accessibility / Reduced Motion
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

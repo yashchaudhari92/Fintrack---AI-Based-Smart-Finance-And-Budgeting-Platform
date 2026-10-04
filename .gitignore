@@ -1,0 +1,14 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Generated files
+backend/receipts/
+backend/reports/
+
+# Dependencies
+node_modules/
+
+# Frontend build
+frontend/dist/

@@ -25,7 +25,7 @@ const verifyToken = async (req, res, next) => {
         const user = await User.findById(decoded.id).select('-password');
         if (!user) return res.status(404).json({ message: 'User not found' });
 
-        req.userId = user.id.toString(); // ✅ attach full user object
+        req.userId = user.id.toString(); // attach full user object
         next();
     } catch (err) {
         res.status(403).json({ message: 'Invalid token' });

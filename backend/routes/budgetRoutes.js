@@ -4,12 +4,12 @@ const Budget = require('../models/Budget');
 const Transaction = require('../models/transaction');
 const { verifyToken } = require('../middleware/authMiddleware');
 
-// 🔸 Helper to format YYYY-MM
+// Helper to format YYYY-MM
 function getMonthString(date = new Date()) {
   return date.toISOString().slice(0, 7);
 }
 
-// 🔹 Set or Update Budget
+// Set or Update Budget
 router.post('/set', verifyToken, async (req, res) => {
   let { month, amount } = req.body;
   const userId = req.userId;
@@ -37,7 +37,7 @@ router.post('/set', verifyToken, async (req, res) => {
   }
 });
 
-// 🔹 Get Budget and Remaining
+// Get Budget and Remaining
 router.get('/:month', verifyToken, async (req, res) => {
   const month = req.params.month || getMonthString();
   const userId = req.userId;

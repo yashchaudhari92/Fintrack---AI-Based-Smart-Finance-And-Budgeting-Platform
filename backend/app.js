@@ -10,7 +10,9 @@ const dashboardRoutes = require("./routes/dashboardRoutes");
 const extractRoute = require('./routes/extractRoute');
 const emailReceipt = require('./routes/emailReceipt');
 const reportRoute = require('./routes/reportRoute');
-const budgetAIRoute = require('./routes/budgetAI')
+const budgetAIRoute = require('./routes/budgetAI');
+const questionRoute = require('./routes/questionRoute');
+
 // const bodyParser = require('body-parser');
 
 
@@ -36,6 +38,7 @@ app.use('/api', reportRoute);
 app.use('/api', extractRoute);
 app.use('/api', emailReceipt);
 app.use('/api', budgetAIRoute);
+app.use('/api', questionRoute);
 app.use('/api/budget', budgetRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 
