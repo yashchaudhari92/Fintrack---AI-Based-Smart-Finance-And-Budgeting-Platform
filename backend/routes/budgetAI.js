@@ -26,7 +26,7 @@ Give a JSON output like:
 
     try {
         const geminiRes = await axios.post(
-            `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY_G}`,
+            `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${API_KEY_G}`,
             {
                 contents: [{ parts: [{ text: prompt }] }]
             }
