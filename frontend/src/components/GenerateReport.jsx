@@ -61,7 +61,7 @@ const GenerateReport = () => {
 
         try {
             const response = await axios.post(
-                `${API_URL}/api/transaction-report`,
+                `${API_URL}/transaction-report`,
                 {
                     range,
                     format,
