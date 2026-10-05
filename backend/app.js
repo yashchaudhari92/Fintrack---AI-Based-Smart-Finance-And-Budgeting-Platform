@@ -1,8 +1,10 @@
+const dotenv = require('dotenv');
+dotenv.config(); 
+
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
-const dotenv = require('dotenv');
 const authRoutes = require('./routes/authRoutes');
 const transactionRoutes = require('./routes/transactionRoutes');
 const budgetRoutes = require('./routes/budgetRoutes');
@@ -15,8 +17,6 @@ const questionRoute = require('./routes/questionRoute');
 
 // const bodyParser = require('body-parser');
 
-
-dotenv.config(); 
 const port = process.env.PORT;
 
 main().then(() => {
